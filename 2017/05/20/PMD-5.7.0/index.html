@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PMD is a source code analyzer. It finds unused variables, empty catch blocks, unnecessary object creation, and so forth.">
+    <meta name="keywords" content="PMD,Java,Salesforce.com Apex,Code Analyzer,Clean Code,Software Development">
+    <meta name="author" content="PMD">
+
+    <title>PMD 5.7.0 released</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+    <body>
+        <!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><img src="/img/pmd_logo_brand.png"></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="https://pmd.github.io/pmd-5.7.0/">Documentation</a>
+                </li>
+                <li>
+                    <a href="https://github.com/pmd/pmd/issues">Bugs</a>
+                </li>
+                <li>
+                    <a href="/#about">About</a>
+                </li>
+                <li>
+                    <a href="/#news">News</a>
+                </li>
+                <li>
+                    <a href="/#support">Support</a>
+                </li>
+                <li>
+                    <a href="/#downloads">Downloads</a>
+                </li>
+                <li>
+                    <a href="/#plugins">Plugins</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+        <section class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>PMD 5.7.0 released</h2>
+
+                    <h2 id="mai-2017---570">20-Mai-2017 - 5.7.0</h2>
+
+<p>The PMD team is pleased to announce PMD 5.7.0.</p>
+
+<p>This is a minor release.</p>
+
+<h3 id="table-of-contents">Table Of Contents</h3>
+
+<ul>
+  <li><a href="#New_and_noteworthy">New and noteworthy</a></li>
+  <li><a href="#Fixed_Issues">Fixed Issues</a></li>
+  <li><a href="#API_Changes">API Changes</a></li>
+  <li><a href="#External_Contributions">External Contributions</a></li>
+</ul>
+
+<h3 id="new-and-noteworthy">New and noteworthy</h3>
+
+<h4 id="modified-rules">Modified Rules</h4>
+
+<ul>
+  <li>
+    <p>The rule “FieldDeclarationsShouldBeAtStartOfClass” of the java-design ruleset has a new property <code class="highlighter-rouge">ignoreInterfaceDeclarations</code>.
+Setting this property to <code class="highlighter-rouge">true</code> ignores interface declarations, that precede fields.
+Example usage:</p>
+
+    <rule ref="rulesets/java/design.xml/FieldDeclarationsShouldBeAtStartOfClass">
+    <properties>
+        <property name="ignoreInterfaceDeclarations" value="true" />
+    </properties>
+</rule>
+  </li>
+</ul>
+
+<h4 id="renderers">Renderers</h4>
+
+<ul>
+  <li>Added the ‘empty’ renderer which will write nothing.  Does not affect other behaviors, for example the command line PMD exit status
+will still indicate whether violations were found.</li>
+</ul>
+
+<h3 id="fixed-issues">Fixed Issues</h3>
+
+<ul>
+  <li>General
+    <ul>
+      <li><a href="https://github.com/pmd/pmd/issues/377">#377</a>: [core] Use maven wrapper and upgrade to maven 3.5.0</li>
+      <li><a href="https://github.com/pmd/pmd/issues/376">#376</a>: [core] Improve build time on travis</li>
+    </ul>
+  </li>
+  <li>java
+    <ul>
+      <li><a href="https://github.com/pmd/pmd/issues/378">#378</a>: [java] Parser Error for empty statements</li>
+    </ul>
+  </li>
+  <li>java-coupling
+    <ul>
+      <li><a href="https://sourceforge.net/p/pmd/bugs/1427/">#1427</a>: [java] Law of Demeter violations for the Builder pattern</li>
+    </ul>
+  </li>
+  <li>java-design
+    <ul>
+      <li><a href="https://github.com/pmd/pmd/issues/345">#345</a>: [java] FieldDeclarationsShouldBeAtStartOfClass: Add ability to ignore interfaces</li>
+      <li><a href="https://github.com/pmd/pmd/issues/389">#389</a>: [java] RuleSetCompatibility - not taking rename of UnusedModifier into account</li>
+    </ul>
+  </li>
+  <li>java-junit
+    <ul>
+      <li><a href="https://github.com/pmd/pmd/issues/358">#358</a>: [java] Mockito verify method is not taken into account in JUnitTestsShouldIncludeAssert rule</li>
+    </ul>
+  </li>
+  <li>java-strings
+    <ul>
+      <li><a href="https://github.com/pmd/pmd/issues/334">#334</a>: [java] [doc] Add suggestion to use StringUtils#isBlank for InefficientEmptyStringCheck</li>
+    </ul>
+  </li>
+  <li>jsp-basic
+    <ul>
+      <li><a href="https://github.com/pmd/pmd/issues/369">#369</a>: [jsp] Wrong issue “JSP file should use UTF-8 encoding”</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="api-changes">API Changes</h3>
+
+<ul>
+  <li>The method <code class="highlighter-rouge">net.sourceforge.pmd.util.StringUtil#htmlEncode(String)</code> is deprecated.
+<code class="highlighter-rouge">org.apache.commons.lang3.StringEscapeUtils#escapeHtml4(String)</code> should be used instead.</li>
+</ul>
+
+<h3 id="external-contributions">External Contributions</h3>
+
+<ul>
+  <li><a href="https://github.com/pmd/pmd/pull/368">#368</a>: [vf] Adding proper AST support for negation expressions</li>
+  <li><a href="https://github.com/pmd/pmd/pull/372">#372</a>: [core] Fix XSS in HTML renderer</li>
+  <li><a href="https://github.com/pmd/pmd/pull/374">#374</a>: [java] Add property to ignore interfaces in FieldDeclarationsShouldBeAtStartOfClassRule</li>
+  <li><a href="https://github.com/pmd/pmd/pull/381">#381</a>: [core] Fix broken link in the site’s doc</li>
+  <li><a href="https://github.com/pmd/pmd/pull/382">#382</a>: [java] Added documentation details on InefficientEmptyStringCheck</li>
+  <li><a href="https://github.com/pmd/pmd/pull/383">#383</a>: [jsp] Fixed JspEncoding false positive</li>
+  <li><a href="https://github.com/pmd/pmd/pull/390">#390</a>: [java] Remove trailing whitespaces in design.xml</li>
+  <li><a href="https://github.com/pmd/pmd/pull/391">#391</a>: [apex] Fix documentation typo</li>
+  <li><a href="https://github.com/pmd/pmd/pull/392">#392</a>: [java] False positive for Law Of Demeter (Builder pattern)</li>
+  <li><a href="https://github.com/pmd/pmd/pull/395">#395</a>: [java] Mockito verify method is not taken into account in JUnitTestsShouldIncludeAssert rule</li>
+</ul>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-inline">
+                    <li>
+                        <a href="/#home">Home</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="https://pmd.github.io/pmd-5.7.0/">Documentation</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="https://github.com/pmd/pmd/issues">Bugs</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/#about">About</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/#news">News</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/#support">Support</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/#downloads">Downloads</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="/#plugins">Plugins</a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted small">Copyright &copy; 2017 PMD. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-4">
+                Credits: <a href="https://github.com/swcool/landing-page-theme">Landing Page Theme</a>, based on free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com/">Start Bootstrap</a>.
+            </div>
+        </div>
+    </div>
+</footer>
+
+        <!-- jQuery Version 1.11.0 -->
+<script src="/js/jquery-1.11.0.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/landing-page.js"></script>
+
+    </body>
+</html>
